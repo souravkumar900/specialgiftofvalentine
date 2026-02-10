@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vault</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Poppins',sans-serif;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#fff1f2,#fdf4ff);
+}
+
+/* VAULT BOX */
+.vault{
+  width:340px;
+  background:#fff;
+  border-radius:28px;
+  padding:35px 25px;
+  text-align:center;
+  box-shadow:0 30px 80px rgba(0,0,0,.15);
+}
+
+.lock{
+  font-size:42px;
+  color:#ff4d6d;
+  margin-bottom:10px;
+}
+
+.vault h1{
+  font-family:'Great Vibes',cursive;
+  font-size:42px;
+  color:#ff2f68;
+}
+
+.vault small{
+  display:block;
+  margin:8px 0 18px;
+  color:#64748b;
+}
+
+/* DISPLAY */
+.display{
+  height:50px;
+  border-radius:14px;
+  background:#fff1f2;
+  margin-bottom:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  letter-spacing:6px;
+  font-size:18px;
+  color:#ff2f68;
+}
+
+/* KEYPAD */
+.keypad{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.key{
+  height:60px;
+  border-radius:50%;
+  background:#fff;
+  border:1px solid #eee;
+  font-size:20px;
+  cursor:pointer;
+  box-shadow:0 6px 15px rgba(0,0,0,.08);
+}
+
+.key:active{
+  transform:scale(.92);
+}
+
+/* BUTTON */
+.unlock{
+  margin-top:25px;
+  width:100%;
+  padding:16px;
+  border:none;
+  border-radius:18px;
+  background:linear-gradient(90deg,#ff758f,#ff4d6d);
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+}
+
+/* PROPOSAL */
+.proposal{
+  display:none;
+  text-align:center;
+}
+
+.proposal img{
+  width:100%;
+  max-width:260px;
+  border-radius:22px;
+  margin-bottom:20px;
+}
+
+.proposal h2{
+  font-family:'Great Vibes',cursive;
+  font-size:44px;
+  color:#ff2f68;
+}
+
+.proposal p{
+  margin-top:10px;
+  font-size:18px;
+  color:#374151;
+}
+
+/* MOBILE */
+@media(max-width:420px){
+  .vault{width:300px}
+}
+/* my code */
+/* YES NO BUTTONS */
+.actions{
+  margin-top:25px;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+}
+
+.actions button{
+  padding:12px 28px;
+  border:none;
+  border-radius:30px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.yes{
+  background:linear-gradient(90deg,#ff4d6d,#ff758f);
+  color:#fff;
+}
+
+.no{
+  background:#e5e7eb;
+  color:#374151;
+}
+
+/* CELEBRATION */
+.celebrate{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+.star{
+  position:absolute;
+  font-size:22px;
+  animation:burst 2s ease-out forwards;
+}
+
+@keyframes burst{
+  0%{transform:scale(0) translateY(0);opacity:1}
+  100%{transform:scale(1.5) translateY(-200px);opacity:0}
+}
+
+.flower{
+  position:absolute;
+  top:-30px;
+  font-size:26px;
+  animation:fall 4s linear forwards;
+}
+
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg);opacity:0}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="vault" id="vaultBox">
+
+  <div class="lock">🔒</div>
+  <h1>The Vault</h1>
+  <small>Enter secret date</small>
+
+  <div class="display" id="display">••••••••</div>
+
+  <div class="keypad">
+    <button class="key" onclick="press(1)">1</button>
+    <button class="key" onclick="press(2)">2</button>
+    <button class="key" onclick="press(3)">3</button>
+    <button class="key" onclick="press(4)">4</button>
+    <button class="key" onclick="press(5)">5</button>
+    <button class="key" onclick="press(6)">6</button>
+    <button class="key" onclick="press(7)">7</button>
+    <button class="key" onclick="press(8)">8</button>
+    <button class="key" onclick="press(9)">9</button>
+    <button class="key" onclick="clearAll()">⌫</button>
+    <button class="key" onclick="press(0)">0</button>
+    <button class="key" onclick="clearAll()">❌</button>
+  </div>
+
+  <button class="unlock" onclick="unlock()">UNLOCK GIFT 💝</button>
+</div>
+
+<!-- PROPOSAL SCREEN -->
+<div class="vault proposal" id="proposalBox">
+  <img src="propose.jpg">
+  <h2>I Love You ❤️</h2>
+  <p>Will you be mine forever? 💍</p>
+  <div class="actions">
+  <button class="yes" onclick="sayYes()">YES 💖</button>
+  <button class="no" onclick="sayNo()">NO 🙈</button>
+</div>
+
+<div class="celebrate" id="celebrate">
+  <div class="stars"></div>
+</div>
+<audio id="proposalSong" loop>
+  <source src="audio.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<script>
+let input = "";
+const password = "152912"; // CHANGE PASSWORD HERE
+
+function press(num){
+  if(input.length < 8){
+    input += num;
+    document.getElementById("display").innerText = "•".repeat(input.length);
+  }
+}
+
+function clearAll(){
+  input = "";
+  document.getElementById("display").innerText = "••••••••";
+}
+
+// function unlock(){
+//   if(input === password){
+//     document.getElementById("vaultBox").style.display="none";
+//     document.getElementById("proposalBox").style.display="block";
+//   }else{
+//     alert("Wrong password 😜");
+//     clearAll();
+//   }
+// }
+function unlock(){
+  if(input === password){
+    document.getElementById("vaultBox").style.display = "none";
+    document.getElementById("proposalBox").style.display = "block";
+
+    const song = document.getElementById("proposalSong");
+    song.volume = 0.6;
+    song.play(); // 🎵 song starts automatically
+  }else{
+    alert("Wrong password 😜");
+    clearAll();
+  }
+}
+
+</script>
+<script>
+function sayYes(){
+  const box = document.getElementById("celebrate");
+
+  // stars burst
+  for(let i=0;i<25;i++){
+    const s=document.createElement("div");
+    s.className="star";
+    s.innerText="✨";
+    s.style.left=Math.random()*100+"vw";
+    s.style.top=Math.random()*100+"vh";
+    box.appendChild(s);
+    setTimeout(()=>s.remove(),2000);
+  }
+
+  // flowers fall
+  for(let i=0;i<20;i++){
+    const f=document.createElement("div");
+    f.className="flower";
+    f.innerText="🌸";
+    f.style.left=Math.random()*100+"vw";
+    f.style.animationDuration=3+Math.random()*3+"s";
+    box.appendChild(f);
+    setTimeout(()=>f.remove(),5000);
+  }
+
+  alert("She said YES 😍💍");
+}
+
+function sayNo(){
+  alert("Arre ruk ja 😜 soch le dobara");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Photo Booth</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:
+    radial-gradient(circle at top left, #ffe4e6, transparent 40%),
+    radial-gradient(circle at bottom right, #ede9fe, transparent 40%),
+    #fff;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+/* ---------------- SONG ---------------- */
+audio{
+  display:none;
+}
+
+/* ---------------- HEADER ---------------- */
+.header{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.header h1{
+  font-family:'Great Vibes',cursive;
+  font-size:72px;
+  background:linear-gradient(90deg,#ff2f68,#c24bff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.header p{
+  font-size:18px;
+  color:#64748b;
+  margin-top:10px;
+}
+
+/* ---------------- PHOTO GRID ---------------- */
+.photo-grid{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+/* ---------------- PHOTO CARD ---------------- */
+.photo-card{
+  background:#fff;
+  border-radius:22px;
+  padding:20px;
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+  transition:.3s;
+}
+
+.photo-card:hover{
+  transform:translateY(-6px);
+}
+
+.photo-card img{
+  width:100%;
+  height:400px;
+  object-fit:cover;
+  border-radius:16px;
+}
+
+.photo-card p{
+  text-align:center;
+  margin-top:12px;
+  font-size:15px;
+  color:#475569;
+}
+
+/* ---------------- FOOTER ---------------- */
+.footer{
+  text-align:center;
+  margin-top:50px;
+  font-family:'Great Vibes',cursive;
+  font-size:34px;
+  color:#ff2f68;
+}
+
+/* ---------------- MOBILE RESPONSIVE ---------------- */
+@media (max-width:768px){
+
+  body{
+    padding:25px 12px;
+  }
+
+  .header h1{
+    font-size:48px;
+  }
+
+  .header p{
+    font-size:15px;
+  }
+
+  .photo-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+  }
+
+  .photo-card img{
+    height:220px;
+  }
+
+  .photo-card p{
+    font-size:13px;
+  }
+
+  .footer{
+    font-size:26px;
+    margin-top:35px;
+  }
+}
+
+@media (max-width:420px){
+
+  .header h1{
+    font-size:40px;
+  }
+
+  .photo-grid{
+    grid-template-columns:1fr;
+  }
+
+  .photo-card img{
+    height:240px;
+  }
+
+  .footer{
+    font-size:22px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND SONG -->
+<audio id="bgSong" autoplay loop>
+  <source src="Woh Din Bhi Kya Din The.mp3" type="audio/mpeg">
+</audio>
+
+<!-- HEADER -->
+<div class="header">
+  <h1>Our Memories</h1>
+  <p>Every picture holds a feeling 🤍</p>
+</div>
+
+<!-- PHOTO GRID -->
+<div class="photo-grid">
+
+  <div class="photo-card">
+    <img src="img1.jpeg" alt="">
+    <p>Your smile is my comfort 🤍</p>
+  </div>
+
+  <div class="photo-card">
+    <img src="img2.jpeg" alt="">
+    <p>This moment means everything</p>
+  </div>
+
+  <div class="photo-card">
+    <img src="img3.jpeg" alt="">
+    <p>Always grateful for you</p>
+  </div>
+
+  <div class="photo-card">
+    <img src="img4.jpeg" alt="">
+    <p>You make life beautiful</p>
+  </div>
+
+  <div class="photo-card">
+    <img src="img5.jpeg" alt="">
+    <p>Forever my bestie 🫶</p>
+  </div>
+
+  <div class="photo-card">
+    <img src="img6.jpeg" alt="">
+    <p>Some bonds are special</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  Just us, just memories 💕
+</div>
+
+<!-- MOBILE AUTOPLAY FIX -->
+<script>
+document.addEventListener("click", () => {
+  const song = document.getElementById("bgSong");
+  if(song.paused){
+    song.volume = 0.4;
+    song.play();
+  }
+}, { once:true });
+</script>
+
+</body>
+</html>

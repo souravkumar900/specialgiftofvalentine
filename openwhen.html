@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open When</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:
+    linear-gradient(135deg,#fff1f2,#fdf4ff,#eef2ff);
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+/* ---------- HEADER ---------- */
+.header{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.header h1{
+  font-family:'Great Vibes',cursive;
+  font-size:64px;
+  background:linear-gradient(90deg,#ff2f68,#c24bff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.header p{
+  font-size:16px;
+  color:#64748b;
+  margin-top:10px;
+}
+
+/* ---------- GRID ---------- */
+.grid{
+  max-width:900px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+/* ---------- CARD ---------- */
+.card{
+  background:#fff;
+  border-radius:24px;
+  padding:28px;
+  box-shadow:0 15px 40px rgba(0,0,0,.08);
+  cursor:pointer;
+  transition:.3s;
+  position:relative;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+}
+
+.card h3{
+  font-family:'Great Vibes',cursive;
+  font-size:34px;
+  color:#ff2f68;
+}
+
+.card small{
+  display:block;
+  margin-top:8px;
+  color:#64748b;
+  font-size:14px;
+}
+
+/* ---------- MODAL ---------- */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.4);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:99;
+}
+
+.modal-box{
+  background:#fff;
+  max-width:420px;
+  width:90%;
+  padding:30px;
+  border-radius:24px;
+  text-align:center;
+}
+
+.modal-box h2{
+  font-family:'Great Vibes',cursive;
+  font-size:42px;
+  color:#ff2f68;
+  margin-bottom:15px;
+}
+
+.modal-box p{
+  font-size:16px;
+  line-height:1.8;
+  color:#374151;
+}
+
+.close{
+  margin-top:22px;
+  padding:10px 26px;
+  border:none;
+  border-radius:30px;
+  background:#ff2f68;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* ---------- MOBILE ---------- */
+@media(max-width:768px){
+  .header h1{font-size:46px;}
+  .card h3{font-size:30px;}
+}
+
+@media(max-width:420px){
+  body{padding:25px 12px;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <h1>Open When</h1>
+  <p>Little messages for your special moments 🤍</p>
+</div>
+
+<!-- CARDS -->
+<div class="grid">
+
+  <div class="card" onclick="openMsg('sad')">
+    <h3>Open When You Are Sad</h3>
+    <small>For your low days</small>
+  </div>
+
+  <div class="card" onclick="openMsg('happy')">
+    <h3>Open When You Are Happy</h3>
+    <small>To smile a little more</small>
+  </div>
+
+  <div class="card" onclick="openMsg('miss')">
+    <h3>Open When You Miss Me</h3>
+    <small>I’m always here</small>
+  </div>
+
+  <div class="card" onclick="openMsg('tired')">
+    <h3>Open When You Are Tired</h3>
+    <small>To feel comfort</small>
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <h2 id="modalTitle"></h2>
+    <p id="modalText"></p>
+    <button class="close" onclick="closeMsg()">Close</button>
+  </div>
+</div>
+
+<script>
+const messages = {
+  sad:{
+    title:"Hello  Sanan  🤍",
+    text:"If you’re reading this, Life me itna tension nhi lene ka mai kl bhi tere sath tha aaj bhi hu aage jivan bhar rahunga bhale hi hm life me kitna bhi busy q na ho tm ek bar bulayegi hm dore chale aayenge ishliye Hamesha haste muskurate rehna quki tmahra alawa mera aisha koi dost nhi ha jispe trust kr sake hum or tm sad q ho bolo bolo na jb bhi sad rehna bss ek mere ko ek bari call kr lena 9508040791 ye website hm kabhi band nhi krenge ye hamesha rahega memories ye hm tmko special feel karwane ke liye banaye the kya pta kl kon ullu ka pattha  se tmahra sadhi hoga😁😁😁wo tmko special feel n krwaye paye ishliye koi kami na reh jaye meri sanan ko ishliye ye sb kiye ❤️ chalo utho or apne aasu poch lo or ek pyara sa smile do 😊 love you  Your BFF Harshu."
+  },
+  happy:{
+    title:"Smile Even More ✨",
+    text:"Your happiness makes everything brighter. Haste Raho Suar Haste hue cute lagti hai Quki tmahre or suar me jada fark nhi hai😁😁school se aaj tk hmko suar bolti thi na hm tmko bolenge or ha ye har bat pe Lawda Lawda kya krti😁😁 Hai tmhare pass suar kahi ki  "
+  },
+  miss:{
+    title:"I’m Right Here 🫶",
+    text:"Distance can never change what we share. I also you miss you, remember that you live in my thoughts more than you realize. pr Miss kr q rhi Biyah kregi kya😁😁"
+  },
+  tired:{
+    title:"Take a Breath 🌙",
+    text:"Rest for a while. You don’t have to be strong all the time. Let the world slow down — I’ve got you."
+  }
+};
+
+function openMsg(type){
+  document.getElementById("modalTitle").innerText = messages[type].title;
+  document.getElementById("modalText").innerText = messages[type].text;
+  document.getElementById("modal").style.display = "flex";
+}
+
+function closeMsg(){
+  document.getElementById("modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>

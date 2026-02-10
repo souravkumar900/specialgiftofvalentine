@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Love Letter</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:
+    linear-gradient(135deg,#fff1f2,#fdf4ff,#eef2ff);
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+/* ---------------- CONTAINER ---------------- */
+.letter-wrapper{
+  max-width:850px;
+  margin:auto;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(10px);
+  border-radius:30px;
+  padding:45px;
+  box-shadow:0 20px 60px rgba(0,0,0,.1);
+}
+
+/* ---------------- TITLE ---------------- */
+.title{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.title h1{
+  font-family:'Great Vibes',cursive;
+  font-size:72px;
+  background:linear-gradient(90deg,#ff2f68,#c24bff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.title p{
+  font-size:16px;
+  color:#64748b;
+  margin-top:8px;
+}
+
+/* ---------------- LETTER TEXT ---------------- */
+.letter{
+  font-family:'Playfair Display',serif;
+  font-size:20px;
+  line-height:1.9;
+  color:#374151;
+}
+
+/* colorful text helpers */
+.pink{ color:#ff2f68; }
+.purple{ color:#8b5cf6; }
+.blue{ color:#2563eb; }
+.gold{ color:#d97706; }
+.italic{ font-style:italic; }
+.bold{ font-weight:600; }
+
+/* signature */
+.signature{
+  margin-top:35px;
+  text-align:right;
+  font-family:'Great Vibes',cursive;
+  font-size:40px;
+  color:#ff2f68;
+}
+
+/* ---------------- MOBILE ---------------- */
+@media (max-width:768px){
+
+  body{
+    padding:25px 12px;
+  }
+
+  .letter-wrapper{
+    padding:28px;
+  }
+
+  .title h1{
+    font-size:48px;
+  }
+
+  .letter{
+    font-size:17px;
+  }
+
+  .signature{
+    font-size:32px;
+  }
+}
+
+@media (max-width:420px){
+
+  .title h1{
+    font-size:40px;
+  }
+
+  .letter{
+    font-size:16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="letter-wrapper">
+
+  <!-- TITLE -->
+  <div class="title">
+    <h1>My Love Letter</h1>
+    <p>Words straight from my heart 🤍</p>
+  </div>
+  <!-- BACKGROUND SONG -->
+<audio id="bgSong" autoplay loop>
+  <source src="mainrang.mp3" type="audio/mpeg">
+</audio>
+
+  <!-- LETTER CONTENT -->
+  <div class="letter">
+
+    <p>
+      <span class="pink italic">Dear Sanan,</span><br><br>
+
+      I don’t know where to begin, because no words ever feel enough to describe
+      what <span class="bold purple">you</span> mean to me.  
+      From the very first moment, you became my comfort, my peace,
+      and my safest place.
+    </p>
+
+    <p>
+      In a world that feels loud and tiring,  
+      <span class="blue italic">your presence feels like silence and calm.</span>  
+      You have this beautiful way of making everything feel lighter,
+      even on days when nothing goes right.
+    </p>
+
+    <p>
+      <span class="gold bold">You are not just my best friend,</span>  
+      you are my jigar ka tukra, my soulmate, my favourite thought,
+      and the reason I believe that some bonds are meant forever.
+    </p>
+
+    <p>
+      I may not say it every day,
+      but I hope you always know this —  
+      <span class="pink bold">you matter to me more than you’ll ever realize.</span>
+    </p>
+
+    <p>
+      No matter where life takes us,
+      a part of my heart will always choose you.
+    </p>
+
+    <div class="signature">
+      Forever Yours 💕
+      Harshu 
+    </div>
+
+  </div>
+
+</div>
+<script>
+document.addEventListener("click", () => {
+  const song = document.getElementById("bgSong");
+  song.volume = 0.4;
+  song.play().catch(err => {
+    console.log("Autoplay blocked, waiting for user interaction");
+  });
+}, { once:true });
+</script>
+
+
+</body>
+</html>

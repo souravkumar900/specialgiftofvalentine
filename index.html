@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Special Gift for Bestie</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:#fff;
+  color:#334155;
+}
+
+/* HERO */
+.hero-section{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(circle at 15% 30%, rgba(255,180,190,0.7), transparent 40%),
+    radial-gradient(circle at 85% 40%, rgba(210,190,255,0.6), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(255,235,200,0.8), transparent 50%),
+    linear-gradient(180deg,#fff5f7,#fff);
+}
+
+.hero{
+  text-align:center;
+  max-width:900px;
+  padding:50px;
+}
+
+.badge{
+  display:inline-block;
+  padding:10px 22px;
+  border:1px solid #ffb3c7;
+  border-radius:30px;
+  color:#ff4d6d;
+  margin-bottom:30px;
+}
+
+.hero h1{
+  font-family:'Great Vibes',cursive;
+  font-size:82px;
+}
+
+.hero h2{
+  font-family:'Great Vibes',cursive;
+  font-size:92px;
+  background:linear-gradient(90deg,#ff2f68,#c24bff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+  font-size:18px;
+  line-height:1.7;
+  margin:30px 0 45px;
+}
+
+.btn{
+  background:#ff003c;
+  color:#fff;
+  padding:18px 44px;
+  border:none;
+  border-radius:50px;
+  cursor:pointer;
+}
+
+/* FEATURES */
+.features-section{padding:80px 20px}
+
+.top{text-align:center;margin-bottom:60px}
+
+.top h1{
+  font-family:'Great Vibes',cursive;
+  font-size:64px;
+}
+
+.features{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.card{
+  padding:30px;
+  border-radius:24px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.card:hover{transform:translateY(-8px)}
+
+.icon{
+  width:52px;
+  height:52px;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:24px;
+  margin-bottom:20px;
+}
+
+.card h3{
+  font-family:'Great Vibes',cursive;
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.photo{background:#fff1f2}.photo .icon{background:#ff2f68}
+.letter{background:#f7f0ff}.letter .icon{background:#a855f7}
+.open{background:#fff9e6}.open .icon{background:#f59e0b}
+.song{background:#fff0f6}.song .icon{background:#ec4899}
+.private{background:#ecfdf5}.private .icon{background:#10b981}
+.game{background:#eff6ff}.game .icon{background:#3b82f6}
+/* my code */
+/* RAIN ITEMS */
+.rain-item{
+  position:fixed;
+  top:-40px;
+  font-size:26px;
+  animation: fall linear forwards;
+  pointer-events:none;
+  z-index:1;
+  opacity:0.9;
+}
+
+@keyframes fall{
+  to{
+    transform: translateY(110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero-section">
+  <div class="hero">
+    <div class="badge">💞 This Valentine Something Special For You Sanan</div>
+    <h1>I Love My</h1>
+    <h2>Bestie 🫶</h2>
+    <p>
+      Not everyone is lucky to have a friend like you.<br>
+      <b style="color:#ff2f68;">You hold a special place in my heart.</b><br>
+      Tu To Apna Admi Hai 🤍
+    </p>
+    <!-- <a href="#features"><button class="btn" onclick="openProposal()">Special Gift For You →</button>
+</a> -->
+<button class="btn" onclick="openProposal()">Special Gift For You →</button>
+
+  </div>
+  <!-- PROPOSAL SECTION (HIDDEN) -->
+
+
+</section>
+
+<!-- FEATURES -->
+<section class="features-section" id="features">
+  <div class="top">
+    <h1>You are special for me</h1>
+    <p>Every little thing made with love.</p>
+  </div>
+
+  <div class="features">
+
+    <div class="card photo" onclick="window.open('photobooth.html','_blank')">
+      <div class="icon">📷</div>
+      <h3>Digital Photo Booth</h3>
+      <p>Memories we can keep forever.</p>
+    </div>
+
+    <div class="card letter" onclick="window.open('loveletter.html','_blank')">
+      <div class="icon">💌</div>
+      <h3>Love Letter</h3>
+      <p>Words from bottom of my heart.</p>
+    </div>
+
+    <!-- ✅ OPEN WHEN (FIXED & BACK) -->
+    <div class="card open" onclick="window.open('openwhen.html','_blank')">
+      <div class="icon">⏰</div>
+      <h3>Open When</h3>
+      <p>Messages for special moments.</p>
+    </div>
+
+    <div class="card song" onclick="window.open('oursong.html','_blank')">
+      <div class="icon">🎵</div>
+      <h3>Our Song</h3>
+      <p>Music that feels like us.</p>
+    </div>
+
+    <div class="card private" onclick="window.open('privatesecure.html','_blank')" >
+      <div class="icon">🔒</div>
+      <h3>Private & Secure</h3>
+      <p>Just between us.</p>
+    </div>
+
+    <div class="card game" onclick="window.open('chats.html','_blank')">
+      <div class="icon">⚡</div>
+      <h3>Funny chats Experience</h3>
+      <p>Fun & cute surprises.</p>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function openProposal(){
+  window.location.href = "propose.html";
+}
+</script>
+<script>
+const rainItems = ["🍫","🌹","❤️","💖","🌸"];
+
+setInterval(()=>{
+  const item = document.createElement("div");
+  item.className = "rain-item";
+  item.innerText = rainItems[Math.floor(Math.random()*rainItems.length)];
+
+  item.style.left = Math.random()*100 + "vw";
+  item.style.animationDuration = (3 + Math.random()*4) + "s";
+  item.style.fontSize = (20 + Math.random()*15) + "px";
+
+  document.body.appendChild(item);
+
+  setTimeout(()=>{
+    item.remove();
+  },7000);
+
+}, 300); // speed control
+</script>
+
+
+</body>
+</html>

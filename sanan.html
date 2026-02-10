@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Special Gift for Bestie</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Poppins', sans-serif;
+  background:#fff;
+  color:#334155;
+  overflow-x:hidden;
+}
+
+/* ---------------- HERO SECTION ---------------- */
+.hero-section{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+
+  background:
+    radial-gradient(circle at 15% 30%, rgba(255,180,190,0.7), transparent 40%),
+    radial-gradient(circle at 85% 40%, rgba(210,190,255,0.6), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(255,235,200,0.8), transparent 50%),
+    linear-gradient(180deg, #fff5f7, #ffffff);
+}
+
+.hero{
+  text-align:center;
+  max-width:900px;
+  padding:50px;
+  position:relative;
+  z-index:2;
+}
+
+.badge{
+  display:inline-block;
+  padding:10px 22px;
+  border:1px solid #ffb3c7;
+  border-radius:30px;
+  color:#ff4d6d;
+  font-size:14px;
+  margin-bottom:35px;
+  background:rgba(255,255,255,0.85);
+}
+
+.hero h1{
+  font-family:'Great Vibes', cursive;
+  font-size:82px;
+}
+
+.hero h2{
+  font-family:'Great Vibes', cursive;
+  font-size:92px;
+  background: linear-gradient(90deg,#ff2f68,#c24bff);
+  
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:25px;
+}
+
+.hero p{
+  font-size:18px;
+  line-height:1.7;
+  margin-bottom:45px;
+}
+
+.btn{
+  background:#ff003c;
+  color:#fff;
+  border:none;
+  padding:18px 44px;
+  font-size:18px;
+  border-radius:50px;
+  cursor:pointer;
+  box-shadow:0 18px 35px rgba(255,0,60,0.35);
+}
+
+/* -------- TEXT BUBBLES -------- */
+@keyframes textFloat {
+  0%{transform:translateY(0) scale(0.8);opacity:0;}
+  10%{opacity:.35;}
+  100%{transform:translateY(-120vh) scale(1.2);opacity:0;}
+}
+
+/* ---------------- FEATURES SECTION ---------------- */
+.features-section{
+  padding:80px 20px;
+}
+
+.top{
+  text-align:center;
+  margin-bottom:60px;
+}
+
+.top small{
+  color:#ff2f68;
+  letter-spacing:2px;
+}
+
+.top h1{
+  font-family:'Great Vibes', cursive;
+  font-size:64px;
+  margin:15px 0;
+}
+
+.top p{
+  font-size:18px;
+  color:#64748b;
+}
+
+.features{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.card{
+  padding:30px;
+  border-radius:24px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+}
+
+.icon{
+  width:52px;
+  height:52px;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:24px;
+  margin-bottom:20px;
+}
+
+.card h3{
+  font-family:'Great Vibes', cursive;
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.photo{background:#fff1f2}.photo .icon{background:#ff2f68}
+.letter{background:#f7f0ff}.letter .icon{background:#a855f7}
+.open{background:#fff9e6}.open .icon{background:#f59e0b}
+.song{background:#fff0f6}.song .icon{background:#ec4899}
+.private{background:#ecfdf5}.private .icon{background:#10b981}
+.game{background:#eff6ff}.game .icon{background:#3b82f6}
+
+/* ---------------- MODAL ---------------- */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.4);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:99;
+}
+
+.modal-box{
+  background:#fff;
+  padding:30px;
+  border-radius:20px;
+  max-width:420px;
+  width:90%;
+  text-align:center;
+}
+
+.modal-box h2{
+  font-family:'Great Vibes', cursive;
+  font-size:36px;
+  margin-bottom:15px;
+}
+
+.close{
+  margin-top:20px;
+  padding:10px 24px;
+  border:none;
+  background:#ff2f68;
+  color:#fff;
+  border-radius:30px;
+  cursor:pointer;
+}
+/* css photo booth */
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:15px;
+  margin-top:15px;
+}
+
+.photo-item img{
+  width:100%;
+  border-radius:12px;
+}
+
+.photo-item p{
+  font-size:14px;
+  margin-top:6px;
+  color:#475569;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero-section">
+  <div class="hero">
+    <div class="badge">💞 Something Special For You Sanan</div>
+
+    <h1>I Love My</h1>
+    <h2>Bestie 🫶</h2>
+
+    <p>
+      Not everyone is lucky to have a friend like you.<br>
+      <span style="color:#ff2f68;font-weight:600;">You hold a special place in my heart.</span><br>
+      Tu To Apna Admi Hai 🤍
+    </p>
+
+    <a href="#features"><button class="btn">Special Gift For You →</button></a>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section" id="features">
+
+ 
+  <div class="top">
+    <small>Happy Valentine Day</small>
+    <h1>You Can't Imagine How Much you are special for me </h1>
+    <p>Every little thing made with love.</p>
+  </div>
+
+  <div class="features">
+    <div class="card photo" onclick="window.open('photobooth.html','_blank')">
+  <div class="icon">📷</div>
+  <h3>Digital Photo Booth</h3>
+  <p>Memories We can keep forever.</p>
+</div>
+
+
+    <!-- <div class="card letter" onclick="openModal('Love Letter')"> -->
+        <div class="card letter" onclick="window.open('loveletter.html','_blank')">
+
+      <div class="icon">💌</div>
+      <h3>Love Letter</h3>
+      <p>Words from Bottom of My heart.</p>
+    </div>
+    
+
+    <div class="card song" onclick="window.open('our-song.html','_blank')">
+  <div class="icon">🎵</div>
+  <h3>Our Song</h3>
+  <p>Music that feels like us.</p>
+</div>
+
+
+    
+      <div class="icon">🎵</div>
+      <h3>Our Song</h3>
+      <p>Music that feels like us.</p>
+    </div>
+
+    <div class="card private" onclick="openModal('Private & Secure')">
+      <div class="icon">🔒</div>
+      <h3>Private & Secure</h3>
+      <p>Just between us.</p>
+    </div>
+
+    <div class="card game" onclick="openModal('Fun Game')">
+      <div class="icon">⚡</div>
+      <h3>Gamified Experience</h3>
+      <p>Fun & cute surprises.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <h2 id="modalTitle"></h2>
+    <p>This is made just for you 🤍</p>
+    <button class="close" onclick="closeModal()">Close</button>
+  </div>
+</div>
+<!-- photo booth -->
+ <!-- PHOTO BOOTH (STATIC CONTENT) -->
+
+
+
+<!-- TEXT BUBBLES SCRIPT -->
+<script>
+const words=["Bestie","Sanan","My Person","Always","Forever","Special","My Comfort","Valentine","S❤️H"];
+setInterval(()=>{
+  const b=document.createElement("div");
+  b.innerText=words[Math.floor(Math.random()*words.length)];
+  b.style.position="absolute";
+  b.style.left=Math.random()*100+"vw";
+  b.style.bottom="-40px";
+  b.style.fontSize=(14+Math.random()*14)+"px";
+  b.style.opacity=".35";
+  b.style.color="#ff4d6d";
+  b.style.animation=`textFloat ${12+Math.random()*8}s linear`;
+  b.style.pointerEvents="none";
+  document.body.appendChild(b);
+  setTimeout(()=>b.remove(),20000);
+},500);
+
+// function openModal(title){
+//   document.getElementById("modalTitle").innerText=title;
+//   document.getElementById("modal").style.display="flex";
+// }
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
+function openModal(title){
+  document.getElementById("modalTitle").innerText = title;
+  document.getElementById("modal").style.display = "flex";
+
+  document.getElementById("photoBooth").style.display = "none";
+  document.getElementById("songBox").style.display = "none";
+
+  if(title === "Photo Booth"){
+    document.getElementById("photoBooth").style.display = "block";
+  }
+
+  if(title === "Our Song"){
+    document.getElementById("songBox").style.display = "block";
+    document.getElementById("song").play();
+  }
+}
+
+
+</script>
+
+
+</script>
+
+
+
+</body>
+</html>
